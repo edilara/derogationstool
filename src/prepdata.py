@@ -4,6 +4,9 @@ import json
 def importExcel(path):
     return pd.read_excel(path, keep_default_na= False)
 
+def replaceTrueFalse(df):
+    return df.replace('No', 'false').replace('Yes', 'true')
+
 def getLength(dataDerogations):
     return len(dataDerogations)
 
