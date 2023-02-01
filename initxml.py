@@ -23,7 +23,7 @@ def duplicateElement(root, lenDataDerogations, copy):
 def toString(tree):
     return et.tostring(tree.getroot(), encoding = 'utf-8')
 
-def writeToXMLFile(tree, filename = 'emptyXML.xml'):
+def writeToXMLFile(tree, filename = 'empty.xml'):
     tree.write(filename, encoding = 'UTF-8', xml_declaration = True) 
 
 def main():
@@ -34,7 +34,7 @@ def main():
     copy = getCopyEntry(root, 'derogation')
     root = duplicateElement(root, lenDataDerogations, copy)
 
-    writeToXMLFile(tree = tree, filename = 'empty.xml')
+    writeToXMLFile(tree = tree)
     
     
 if __name__ == '__main__':
