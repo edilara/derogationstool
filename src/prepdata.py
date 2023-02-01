@@ -5,7 +5,6 @@ def importExcel(path):
     return pd.read_excel(path, keep_default_na= False)
 
 def replaceTrueFalse(df):
-    """habides tool transforms No and Yes to False and True"""
     return df.replace('No', 'false').replace('Yes', 'true')
 
 def getLength(dataDerogations):
