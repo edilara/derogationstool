@@ -1,5 +1,5 @@
 import xmlschema
-from initxml import getXML
+from src.initxml import getXML
 
 def load_xsd(path = 'derogations.xsd'):
     return xmlschema.XMLSchema(path)
