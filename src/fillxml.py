@@ -11,6 +11,7 @@ def setDerogations(root, userIdentity = 'TestGovt', country = 'XX'):
     root.set('country', country)
     return root
 
+#in the tags
 def setDirective(root, directive = 'http://rod.eionet.europa.eu/obligations/268'):
     for entry in root.findall('derogation'):
         entry.set('directive', directive)
