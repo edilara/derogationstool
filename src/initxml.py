@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as et
 from copy import deepcopy
 import re
-from src.prepdata import importExcel, getLength
+from prepdata import importExcel, getLength
 
 def getXML(path = 'habides-derogations-instance.xml'):
     return et.parse(path)
