@@ -1,6 +1,6 @@
 import prepdata as prep
 import xml.etree.ElementTree as et
-from initxml import getXML, getRootXML
+from initxml import getXML, getRootXML, getCopyEntry
 
 
 def setDerogations(root, userIdentity = 'TestGovt', country = 'XX'):
@@ -43,6 +43,26 @@ def fillSecondlevelPrefix(prefixlist, dictkey, dict, element):
                     nelem.text = str(dict[n])
         else:
             continue
+    
+    return element
+
+def fillSecondLevelCodes(codesdict, dictkey, dict, element):
+    for elem in element.findall(dictkey):
+        nestedcopy = getCopyEntry(elem, codesdict[dictkey])
+
+        if ',' in str(dict[dictkey]):
+            codes = str(dict[dictkey]).split(',')
+        else:
+            codes = str(dict[dictkey])
+        
+        if type(codes) is list:
+            elem.clear()
+            for c in codes:
+                nest = et.SubElement(elem, nestedcopy.tag)
+                nest.text = str(c)
+        else:
+            for nelem in elem:
+                nelem.text = str(codes)
     
     return element
 
