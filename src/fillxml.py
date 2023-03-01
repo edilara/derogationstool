@@ -13,11 +13,6 @@ def setDerogations(root, userIdentity = 'TestGovt', country = 'XX'):
 
 def getDirective(datapoint):
     return datapoint['directive']
-
-def setDirective(root, directive = 'http://rod.eionet.europa.eu/obligations/268'):
-    for entry in root.findall('derogation'):
-        entry.set('directive', directive)
-    return root 
    
 def setStatus(root, status = 'complete'):
     for entry in root.findall('derogation'):
