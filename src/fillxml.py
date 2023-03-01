@@ -11,18 +11,25 @@ def setDerogations(root, userIdentity = 'TestGovt', country = 'XX'):
     root.set('country', country)
     return root
 
+def getDirective(datapoint):
+    return datapoint['directive']
+
 def setDirective(root, directive = 'http://rod.eionet.europa.eu/obligations/268'):
     for entry in root.findall('derogation'):
         entry.set('directive', directive)
     return root 
-
+   
 def setStatus(root, status = 'complete'):
     for entry in root.findall('derogation'):
         entry.set('status', status)
     return root 
 
-def setDirectiveDerogation(derogation, directive = 'http://rod.eionet.europa.eu/obligations/268'):
-    return derogation.set('directive', directive)
+def setDirectiveDerogation(derogation, directive, urls = ['http://rod.eionet.europa.eu/obligations/276', 'http://rod.eionet.europa.eu/obligations/268']):
+    if directive == 'Birds':
+        derogation.set('directive', urls[0])
+    else:
+        derogation.set('directive', urls[1])
+    return derogation
 
 def setStatusDerogation(derogation, status = 'complete'):
     return derogation.set('status', status)
